@@ -3,29 +3,67 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		797FD612C18C33354DFA06C2 /* Pods_CSIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8826FC6854BA8E46BB6073FC /* Pods_CSIA.framework */; };
+		CC13B22624E92610002BF6BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC13B22524E92610002BF6BF /* Constants.swift */; };
+		CC1EDB3224EA7214009199BE /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3124EA7214009199BE /* ItemViewController.swift */; };
+		CC1EDB3424EA73FF009199BE /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3324EA73FF009199BE /* EditViewController.swift */; };
+		CC1EDB3624EA75CB009199BE /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */; };
+		CC1EDB3824EA7606009199BE /* BoxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3724EA7606009199BE /* BoxesViewController.swift */; };
+		CC40E1C424E8F885001611BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC40E1C324E8F885001611BB /* GoogleService-Info.plist */; };
 		CC827F2424E8E6390081D245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F2324E8E6390081D245 /* AppDelegate.swift */; };
 		CC827F2624E8E6390081D245 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F2524E8E6390081D245 /* SceneDelegate.swift */; };
-		CC827F2824E8E6390081D245 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F2724E8E6390081D245 /* FirstViewController.swift */; };
-		CC827F2A24E8E6390081D245 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F2924E8E6390081D245 /* SecondViewController.swift */; };
 		CC827F2D24E8E6390081D245 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC827F2B24E8E6390081D245 /* Main.storyboard */; };
 		CC827F2F24E8E63B0081D245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC827F2E24E8E63B0081D245 /* Assets.xcassets */; };
 		CC827F3224E8E63B0081D245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC827F3024E8E63B0081D245 /* LaunchScreen.storyboard */; };
+		CC827F3A24E8E6B10081D245 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F3924E8E6B10081D245 /* MainTabController.swift */; };
+		CC827F3C24E8E7E20081D245 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F3B24E8E7E20081D245 /* WelcomeViewController.swift */; };
+		CC827F3E24E8E7FE0081D245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F3D24E8E7FE0081D245 /* LoginViewController.swift */; };
+		CC827F4024E8E8090081D245 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F3F24E8E8090081D245 /* SignUpViewController.swift */; };
+		CCBFB6AA24E943BE0050D8C9 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6A924E943BE0050D8C9 /* RoomViewController.swift */; };
+		CCBFB6AC24E944230050D8C9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6AB24E944230050D8C9 /* SearchViewController.swift */; };
+		CCBFB6AE24E944340050D8C9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6AD24E944340050D8C9 /* AddViewController.swift */; };
+		CCBFB6B024E944400050D8C9 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6AF24E944400050D8C9 /* ScanViewController.swift */; };
+		CCBFB6B224E9444D0050D8C9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B124E9444D0050D8C9 /* ProfileViewController.swift */; };
+		CCBFB6B424E982190050D8C9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B324E982180050D8C9 /* UserModel.swift */; };
+		CCBFB6B724E98E760050D8C9 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B624E98E750050D8C9 /* ItemModel.swift */; };
+		CCBFB6B924E98F480050D8C9 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B824E98F480050D8C9 /* BoxModel.swift */; };
+		CCBFB6BB24E990FF0050D8C9 /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC827F2024E8E6390081D245 /* CSIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42714A6376A670B5B54A51EF /* Pods-CSIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSIA.release.xcconfig"; path = "Target Support Files/Pods-CSIA/Pods-CSIA.release.xcconfig"; sourceTree = "<group>"; };
+		77261CE534E5C35657B40027 /* Pods-CSIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSIA.debug.xcconfig"; path = "Target Support Files/Pods-CSIA/Pods-CSIA.debug.xcconfig"; sourceTree = "<group>"; };
+		8826FC6854BA8E46BB6073FC /* Pods_CSIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC13B22524E92610002BF6BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CC1EDB3124EA7214009199BE /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		CC1EDB3324EA73FF009199BE /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		CC1EDB3724EA7606009199BE /* BoxesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxesViewController.swift; sourceTree = "<group>"; };
+		CC40E1C324E8F885001611BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC827F2024E8E6390081D245 /* OnTheMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC827F2324E8E6390081D245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC827F2524E8E6390081D245 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CC827F2724E8E6390081D245 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		CC827F2924E8E6390081D245 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CC827F2C24E8E6390081D245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC827F2E24E8E63B0081D245 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC827F3124E8E63B0081D245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC827F3324E8E63B0081D245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC827F3924E8E6B10081D245 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		CC827F3B24E8E7E20081D245 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		CC827F3D24E8E7FE0081D245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CC827F3F24E8E8090081D245 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CCBFB6A924E943BE0050D8C9 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		CCBFB6AB24E944230050D8C9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CCBFB6AD24E944340050D8C9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		CCBFB6AF24E944400050D8C9 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		CCBFB6B124E9444D0050D8C9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CCBFB6B324E982180050D8C9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CCBFB6B624E98E750050D8C9 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		CCBFB6B824E98F480050D8C9 /* BoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
+		CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,24 +71,82 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797FD612C18C33354DFA06C2 /* Pods_CSIA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F6ABCEE17F3CA26E0B528D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77261CE534E5C35657B40027 /* Pods-CSIA.debug.xcconfig */,
+				42714A6376A670B5B54A51EF /* Pods-CSIA.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9EF1CF5C2AAE696FA9B12746 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8826FC6854BA8E46BB6073FC /* Pods_CSIA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC13B22424E925F9002BF6BF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CC13B22524E92610002BF6BF /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CC1EDB3924EA7790009199BE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				CC827F3B24E8E7E20081D245 /* WelcomeViewController.swift */,
+				CC827F3D24E8E7FE0081D245 /* LoginViewController.swift */,
+				CC827F3F24E8E8090081D245 /* SignUpViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		CC1EDB3A24EA77A2009199BE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CCBFB6AB24E944230050D8C9 /* SearchViewController.swift */,
+				CC1EDB3124EA7214009199BE /* ItemViewController.swift */,
+				CC1EDB3324EA73FF009199BE /* EditViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CC1EDB3B24EA77DA009199BE /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				CCBFB6AD24E944340050D8C9 /* AddViewController.swift */,
+				CC1EDB3724EA7606009199BE /* BoxesViewController.swift */,
+				CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 		CC827F1724E8E6390081D245 = {
 			isa = PBXGroup;
 			children = (
 				CC827F2224E8E6390081D245 /* CSIA */,
 				CC827F2124E8E6390081D245 /* Products */,
+				8F6ABCEE17F3CA26E0B528D9 /* Pods */,
+				9EF1CF5C2AAE696FA9B12746 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		CC827F2124E8E6390081D245 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC827F2024E8E6390081D245 /* CSIA.app */,
+				CC827F2024E8E6390081D245 /* OnTheMove.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,16 +154,43 @@
 		CC827F2224E8E6390081D245 /* CSIA */ = {
 			isa = PBXGroup;
 			children = (
+				CCBFB6B524E98E570050D8C9 /* Models */,
+				CC13B22424E925F9002BF6BF /* Utilities */,
+				CC827F4124E8E8230081D245 /* View Controllers */,
+				CC827F3924E8E6B10081D245 /* MainTabController.swift */,
 				CC827F2324E8E6390081D245 /* AppDelegate.swift */,
 				CC827F2524E8E6390081D245 /* SceneDelegate.swift */,
-				CC827F2724E8E6390081D245 /* FirstViewController.swift */,
-				CC827F2924E8E6390081D245 /* SecondViewController.swift */,
 				CC827F2B24E8E6390081D245 /* Main.storyboard */,
 				CC827F2E24E8E63B0081D245 /* Assets.xcassets */,
 				CC827F3024E8E63B0081D245 /* LaunchScreen.storyboard */,
+				CC40E1C324E8F885001611BB /* GoogleService-Info.plist */,
 				CC827F3324E8E63B0081D245 /* Info.plist */,
 			);
 			path = CSIA;
+			sourceTree = "<group>";
+		};
+		CC827F4124E8E8230081D245 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC1EDB3B24EA77DA009199BE /* Add */,
+				CC1EDB3A24EA77A2009199BE /* Search */,
+				CC1EDB3924EA7790009199BE /* Welcome */,
+				CCBFB6A924E943BE0050D8C9 /* RoomViewController.swift */,
+				CCBFB6AF24E944400050D8C9 /* ScanViewController.swift */,
+				CCBFB6B124E9444D0050D8C9 /* ProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CCBFB6B524E98E570050D8C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CCBFB6B324E982180050D8C9 /* UserModel.swift */,
+				CCBFB6B624E98E750050D8C9 /* ItemModel.swift */,
+				CCBFB6B824E98F480050D8C9 /* BoxModel.swift */,
+				CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC827F3624E8E63B0081D245 /* Build configuration list for PBXNativeTarget "CSIA" */;
 			buildPhases = (
+				9934BCB1D0CBDC9D5CBCF0C3 /* [CP] Check Pods Manifest.lock */,
 				CC827F1C24E8E6390081D245 /* Sources */,
 				CC827F1D24E8E6390081D245 /* Frameworks */,
 				CC827F1E24E8E6390081D245 /* Resources */,
+				776EB6E0C10BF4351A67CC00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -87,7 +212,7 @@
 			);
 			name = CSIA;
 			productName = CSIA;
-			productReference = CC827F2024E8E6390081D245 /* CSIA.app */;
+			productReference = CC827F2024E8E6390081D245 /* OnTheMove.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC827F3224E8E63B0081D245 /* LaunchScreen.storyboard in Resources */,
+				CC40E1C424E8F885001611BB /* GoogleService-Info.plist in Resources */,
 				CC827F2F24E8E63B0081D245 /* Assets.xcassets in Resources */,
 				CC827F2D24E8E6390081D245 /* Main.storyboard in Resources */,
 			);
@@ -136,15 +262,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		776EB6E0C10BF4351A67CC00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CSIA/Pods-CSIA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CSIA/Pods-CSIA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CSIA/Pods-CSIA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9934BCB1D0CBDC9D5CBCF0C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CSIA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC827F1C24E8E6390081D245 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC827F2A24E8E6390081D245 /* SecondViewController.swift in Sources */,
-				CC827F2824E8E6390081D245 /* FirstViewController.swift in Sources */,
+				CCBFB6AE24E944340050D8C9 /* AddViewController.swift in Sources */,
+				CC827F3E24E8E7FE0081D245 /* LoginViewController.swift in Sources */,
+				CC827F4024E8E8090081D245 /* SignUpViewController.swift in Sources */,
+				CCBFB6B024E944400050D8C9 /* ScanViewController.swift in Sources */,
+				CC827F3A24E8E6B10081D245 /* MainTabController.swift in Sources */,
+				CCBFB6B424E982190050D8C9 /* UserModel.swift in Sources */,
+				CCBFB6AC24E944230050D8C9 /* SearchViewController.swift in Sources */,
+				CCBFB6B224E9444D0050D8C9 /* ProfileViewController.swift in Sources */,
+				CC1EDB3824EA7606009199BE /* BoxesViewController.swift in Sources */,
+				CC1EDB3424EA73FF009199BE /* EditViewController.swift in Sources */,
+				CCBFB6BB24E990FF0050D8C9 /* RoomModel.swift in Sources */,
+				CC827F3C24E8E7E20081D245 /* WelcomeViewController.swift in Sources */,
 				CC827F2424E8E6390081D245 /* AppDelegate.swift in Sources */,
 				CC827F2624E8E6390081D245 /* SceneDelegate.swift in Sources */,
+				CCBFB6B924E98F480050D8C9 /* BoxModel.swift in Sources */,
+				CC13B22624E92610002BF6BF /* Constants.swift in Sources */,
+				CC1EDB3224EA7214009199BE /* ItemViewController.swift in Sources */,
+				CC1EDB3624EA75CB009199BE /* QRCodeViewController.swift in Sources */,
+				CCBFB6B724E98E760050D8C9 /* ItemModel.swift in Sources */,
+				CCBFB6AA24E943BE0050D8C9 /* RoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,16 +470,18 @@
 		};
 		CC827F3724E8E63B0081D245 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77261CE534E5C35657B40027 /* Pods-CSIA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CSIA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CIS.CSIA;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = OnTheMove;
+				PRODUCT_NAME = OnTheMove;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,16 +489,18 @@
 		};
 		CC827F3824E8E63B0081D245 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42714A6376A670B5B54A51EF /* Pods-CSIA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CSIA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CIS.CSIA;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = OnTheMove;
+				PRODUCT_NAME = OnTheMove;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
