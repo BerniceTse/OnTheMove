@@ -21,16 +21,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
@@ -39,19 +35,16 @@ class SignUpViewController: UIViewController {
         errorLabel.alpha = 0
     }
     
-    
     func validateFields() -> String?
     {
         //check all fields are filled in
-        if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        {
             return "Please fill in all fields."
         }
-        
-        //check password is secure
-        
         return nil
     }
-    
+    //check password is secure
     func showError( message: String)
     {
         errorLabel.text = message
@@ -60,7 +53,6 @@ class SignUpViewController: UIViewController {
     
     func transitionToHome()
     {
-
         let mainTabController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.MainTabController) as? MainTabController
         
         view.window?.rootViewController = mainTabController
@@ -77,13 +69,13 @@ class SignUpViewController: UIViewController {
         }
         else
         {
-         
             let username = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
             //create new user
-            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+            Auth.auth().createUser(withEmail: email, password: password)
+            { (result, err) in
                 
                 //check errors
                 if err != nil
@@ -93,21 +85,13 @@ class SignUpViewController: UIViewController {
                 else
                 {
                     //user created successfully
-                    self.ref.child("users").child(result!.user.uid).child("Personal Information").child("email").setValue(email)
-                    self.ref.child("users").child(result!.user.uid).child("Personal Information").child("username").setValue(username)
-                    self.ref.child("users").child(result!.user.uid).child("Personal Information").child("userid").setValue(result!.user.uid)
-                
-                    let userID = Auth.auth().currentUser?.uid
-                    _ = UserModel(uid: userID, username: username, email:email)
+                    let dict: [String: Any] = ["Email": email, "UserID": result!.user.uid, "Username": username, "RoomsCount": 0, "RoomsList": []]
+                    self.ref.child("users").child(result!.user.uid).child("Personal Information").setValue(dict)
+                    
+                    //direct to homescreen
+                    self.transitionToHome()
+                }
             }
-        
-        //direct to homescreen
-            self.transitionToHome()
-            
         }
     }
-    
-
-    }
-    
 }

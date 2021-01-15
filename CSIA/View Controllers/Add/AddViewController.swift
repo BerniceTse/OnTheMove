@@ -18,17 +18,17 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var roomField: UITextField!
     @IBOutlet weak var boxField: UITextField!
-    
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var quantityStepper: UIStepper!
     
-    let rooms = ["Bathroom", "Dining Room", "Kitchen", "Living Room" ]
+    let rooms = ["Bathroom", "Bedroom", "Dining Room", "Kitchen", "Living Room", "Other"]
     let boxes = ["Tray", "Cupboard", "Shelf", "Drawer"]
     
-    var quantity = 0
-    
-    
+    var quantity = ""
+    var roomCount = 0
+
     var roomPickerView = UIPickerView()
     var boxPickerView = UIPickerView()
     
@@ -43,15 +43,10 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         boxPickerView.dataSource = self
         
         roomField.inputView = roomPickerView
-        roomField.textAlignment = .center
         roomField.placeholder = "Select Room"
         
         boxField.inputView = boxPickerView
-        boxField.textAlignment = .center
         boxField.placeholder = "Select Box"
-        
-
-        // Do any additional setup after loading the view.
     }
     // returns the number of 'columns' to display.
 
@@ -60,7 +55,6 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         return 1
     }
 
-    
     // returns the # of rows in each component..
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
@@ -108,59 +102,73 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func addButtonTapped(sender:Any)
     {
-        //get Strings from textfields
-        let roomName = roomField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let boxName = boxField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let itemName = itemNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let description = descriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        //create room and box models
-        let room = RoomModel(roomName: roomName, boxesList: [], boxCount: 0)
-        let box = BoxModel(boxName: boxName, itemsList: [], itemCount: 0)
-        let item = ItemModel(name: itemName, box: box, room: room, quantity: quantity, description: description)
-      
-        room.addBox(box: box)
-        
-        //obtain current user id
-        let uid = Auth.auth().currentUser?.uid
-        
-        ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { (DataSnapshot) in
-            print(DataSnapshot)
-        }, withCancel: nil)
-        
-       // store relevant information in Firebase
-        ref.child("users").child(uid!).child("Rooms").child(roomName).child("Name").setValue(roomName)
-        ref.child("users").child(uid!).child("Rooms").child(roomName).child("Boxes").child(boxName).child("Name").setValue(boxName)
-        ref.child("users").child(uid!).child("Rooms").child(roomName).child("Boxes").child(boxName).child("Items").child(itemName).child("Name").setValue(itemName)
-        
-        ref.child("users").child(uid!).child("Rooms").child(roomName).child("Boxes").child(boxName).child("Items").child(itemName).child("Quantity").setValue(quantity)
-        ref.child("users").child(uid!).child("Rooms").child(roomName).child("Boxes").child(boxName).child("Items").child(itemName).child("Decription").setValue(description)
-        
-        
-        clear(textfield: roomField)
-        clear(textfield: boxField)
-        clear(textfield: itemNameTextField)
-        clear(textfield: descriptionLabel)
-    
+        //error catching: https://developer.apple.com/documentation/uikit/uialertcontroller
+        if roomField.text == "" || boxField.text == "" || itemNameTextField.text == ""
+        {
+            let alert = UIAlertController(title: "Error", message: "Please ensure you have inputted all fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+                { (UIAlertAction) in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+        }
+        if quantity == "0"
+        {
+            let alert = UIAlertController(title: "Error", message: "Quantity cannot be zero", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+                { (UIAlertAction) in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            //get user input from textfields
+            let roomName = roomField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let boxName = boxField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let itemName = itemNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let description = descriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+//            if boxName == "Other"
+//            {
+//                let vc = storyboard?.instantiateViewController(identifier: "PopUpVC") as? PopUpViewController
+//
+//                self.navigationController?.pushViewController(vc!, animated: true)
+//            }
+                
+            //obtain current user id
+            let uid = Auth.auth().currentUser?.uid
+                
+            //store relevant information in Firebase: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html
+            let itemDict: [String: Any] = [ "Room": roomName, "Box": boxName,"Description": description, "Quantity": quantity, "Name": itemName]
+            ref.child("users").child(uid!).child("Items").child(itemName).setValue(itemDict)
+                
+            //clear display
+            clear(textfield: roomField)
+            clear(textfield: boxField)
+            clear(textfield: itemNameTextField)
+            clear(textfield: descriptionLabel)
+            quantityStepper.value = 1
+            quantityLabel.text = "1"
+            
+            let vc = storyboard?.instantiateViewController(identifier: "boxesVC") as? BoxesViewController
+//            vc?.boxName.text = boxName
+//            vc?.roomName.text = roomName
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
      
     //https://www.youtube.com/watch?v=fLJVBbVEpBg
     @IBAction func stepper(_ sender: UIStepper)
     {
-        quantity = Int(sender.value)
-        quantityLabel.text = String( sender.value)
+        quantity = String(Int(sender.value))
+        quantityLabel.text = String(Int(sender.value))
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+           //add roomCount
+//            ref.child("users").child(uid!).child("Personal Information").child("RoomCount").observeSingleEvent(of: .value)
+//                { (DataSnapshot) in
+//                    self.roomCount = (DataSnapshot.value as? Int)!
+//                }
+//            ref.child("users").child(uid!).child("Personal Information").child("RoomCount").setValue(roomCount + 1)

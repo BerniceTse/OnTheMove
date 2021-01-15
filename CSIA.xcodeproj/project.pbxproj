@@ -32,6 +32,11 @@
 		CCBFB6B724E98E760050D8C9 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B624E98E750050D8C9 /* ItemModel.swift */; };
 		CCBFB6B924E98F480050D8C9 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B824E98F480050D8C9 /* BoxModel.swift */; };
 		CCBFB6BB24E990FF0050D8C9 /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */; };
+		CCCE297525AF33BE00D13AB9 /* SearchCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCE297325AF33BD00D13AB9 /* SearchCellTableViewCell.swift */; };
+		CCCE297625AF33BE00D13AB9 /* SearchCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCCE297425AF33BE00D13AB9 /* SearchCellTableViewCell.xib */; };
+		CCF16A8A259F639700342532 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF16A88259F639700342532 /* CustomTableViewCell.swift */; };
+		CCF16A8B259F639700342532 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF16A89259F639700342532 /* CustomTableViewCell.xib */; };
+		CCF16A8F25AE031800342532 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF16A8E25AE031800342532 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,11 @@
 		CCBFB6B624E98E750050D8C9 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		CCBFB6B824E98F480050D8C9 /* BoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
 		CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
+		CCCE297325AF33BD00D13AB9 /* SearchCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellTableViewCell.swift; sourceTree = "<group>"; };
+		CCCE297425AF33BE00D13AB9 /* SearchCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCellTableViewCell.xib; sourceTree = "<group>"; };
+		CCF16A88259F639700342532 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		CCF16A89259F639700342532 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		CCF16A8E25AE031800342532 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,7 @@
 				CCBFB6AD24E944340050D8C9 /* AddViewController.swift */,
 				CC1EDB3724EA7606009199BE /* BoxesViewController.swift */,
 				CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */,
+				CCF16A8E25AE031800342532 /* PopUpViewController.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -165,6 +176,10 @@
 				CC827F3024E8E63B0081D245 /* LaunchScreen.storyboard */,
 				CC40E1C324E8F885001611BB /* GoogleService-Info.plist */,
 				CC827F3324E8E63B0081D245 /* Info.plist */,
+				CCF16A88259F639700342532 /* CustomTableViewCell.swift */,
+				CCF16A89259F639700342532 /* CustomTableViewCell.xib */,
+				CCCE297325AF33BD00D13AB9 /* SearchCellTableViewCell.swift */,
+				CCCE297425AF33BE00D13AB9 /* SearchCellTableViewCell.xib */,
 			);
 			path = CSIA;
 			sourceTree = "<group>";
@@ -256,6 +271,8 @@
 				CC827F3224E8E63B0081D245 /* LaunchScreen.storyboard in Resources */,
 				CC40E1C424E8F885001611BB /* GoogleService-Info.plist in Resources */,
 				CC827F2F24E8E63B0081D245 /* Assets.xcassets in Resources */,
+				CCCE297625AF33BE00D13AB9 /* SearchCellTableViewCell.xib in Resources */,
+				CCF16A8B259F639700342532 /* CustomTableViewCell.xib in Resources */,
 				CC827F2D24E8E6390081D245 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +329,8 @@
 				CCBFB6AE24E944340050D8C9 /* AddViewController.swift in Sources */,
 				CC827F3E24E8E7FE0081D245 /* LoginViewController.swift in Sources */,
 				CC827F4024E8E8090081D245 /* SignUpViewController.swift in Sources */,
+				CCF16A8F25AE031800342532 /* PopUpViewController.swift in Sources */,
+				CCF16A8A259F639700342532 /* CustomTableViewCell.swift in Sources */,
 				CCBFB6B024E944400050D8C9 /* ScanViewController.swift in Sources */,
 				CC827F3A24E8E6B10081D245 /* MainTabController.swift in Sources */,
 				CCBFB6B424E982190050D8C9 /* UserModel.swift in Sources */,
@@ -325,6 +344,7 @@
 				CC827F2624E8E6390081D245 /* SceneDelegate.swift in Sources */,
 				CCBFB6B924E98F480050D8C9 /* BoxModel.swift in Sources */,
 				CC13B22624E92610002BF6BF /* Constants.swift in Sources */,
+				CCCE297525AF33BE00D13AB9 /* SearchCellTableViewCell.swift in Sources */,
 				CC1EDB3224EA7214009199BE /* ItemViewController.swift in Sources */,
 				CC1EDB3624EA75CB009199BE /* QRCodeViewController.swift in Sources */,
 				CCBFB6B724E98E760050D8C9 /* ItemModel.swift in Sources */,

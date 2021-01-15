@@ -10,12 +10,12 @@
 class ItemModel
 {
     var name: String?
-    var box: BoxModel;
-    var room: RoomModel;
-    var quantity: Int?
+    var box: String?
+    var room: String?
+    var quantity: String?
     var description: String?
        
-    init(name: String?, box: BoxModel, room: RoomModel, quantity: Int?, description: String?)
+    init(name: String?, box: String?, room: String?, quantity: String?, description: String?)
        {
            self.name = name
            self.quantity = quantity
@@ -24,13 +24,14 @@ class ItemModel
            self.description = description
        }
     
-//    var name: String {
-//        get {
-//            //code to execute
-//            return name
-//        }
-//        set(newValue) {
-//            //code to execute
-//        }
-//    }
+    func setName(newName: String) { name = newName }
+    func getName() -> String? { return name }
+    func setBox(newBox: String) { box = newBox }
+    func getBox() -> String? { return box }
+    func setRoom(newRoom: String) { room = newRoom }
+    func getRoom() -> String? { return room }
+    func setQuantity(newQuantity: String) { quantity = newQuantity }
+    func getQuantity() -> String? { return quantity }
+    func setDescription(newDescription: String) { description = newDescription }
+    func getDescription() -> String? { return description }
 }

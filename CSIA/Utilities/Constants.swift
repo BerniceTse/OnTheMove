@@ -13,6 +13,7 @@ struct Constants
     struct Storyboard
     {
         static let MainTabController = "WelcomeVC"
+        static let SignOut = "SignOut"
     }
 }
 

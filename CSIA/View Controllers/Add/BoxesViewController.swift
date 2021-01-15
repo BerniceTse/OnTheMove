@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+import Firebase
 
 class BoxesViewController: UIViewController {
 
   
-     @IBOutlet var tableView: UITableView!
-        
-        //need to retrive items with same name from different boxes/rooms
-        let itemsList = ["Books", "Folders", "Toys"]
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var boxName: UILabel!
+    @IBOutlet weak var roomName: UILabel!
+    
+    //need to retrive items with same name from different boxes/rooms
+        var itemList = [String]()
         
         override func viewDidLoad()
         {
@@ -24,8 +29,44 @@ class BoxesViewController: UIViewController {
             tableView.dataSource = self
             // Do any additional setup after loading the view.
         }
+    func displayItems()
+    {
+        let uid = Auth.auth().currentUser?.uid
+            let ref: DatabaseReference = Database.database().reference()
+            ref.child("users").child(uid!).child("Items").observeSingleEvent(of: .value)
+            { (DataSnapshot) in
+                
+               if let dict = DataSnapshot.value as? [String: AnyObject]
+                          {
+                              for itemName in dict.keys
+                              {
+                                    ref.child("users").child(uid!).child("Items").child(itemName).observe(.value)
+                                    { (DataSnapshot) in
+                                    
+                                        if let dict =  DataSnapshot.value as? [String: AnyObject]
+                                        {
+                                            if dict["Room"] as? String == self.roomName.text
+                                            {
+                                                let item = dict["Name"] as? String
+                                                self.itemList.append(item!)
+                                                let itemindexPath = IndexPath(row: self.itemList.count-1, section: 0)
+                                                self.tableView.insertRows(at: [itemindexPath], with: .automatic)
+                                            }
+                                           
+    
+                                                
+                                        }
+                                    }
+                                        
+                                }
+                            }
+                            
+    
         
         }
+    }
+    
+}
     extension BoxesViewController: UITableViewDelegate
     {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -40,13 +81,13 @@ class BoxesViewController: UIViewController {
     extension BoxesViewController: UITableViewDataSource
     {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return itemsList.count
+            return itemList.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             
-            cell.textLabel?.text = itemsList[indexPath.row]
+            cell.textLabel?.text = itemList[indexPath.row]
             return cell
         }
     }

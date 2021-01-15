@@ -11,42 +11,33 @@ class UserModel
     var uid: String?
     var username: String?
     var email: String?
+    var roomsList: [RoomModel] = []
+    var roomCount: Int
     
-    init(uid: String?, username: String?, email: String?)
+    init(uid: String?, username: String?, email: String?, roomsList: [RoomModel], roomCount: Int)
     {
         self.uid = uid
         self.username = username
         self.email = email
+        self.roomsList = roomsList
+        self.roomCount = roomCount
     }
     
-    func setUid(newUid: String)
-    {
-        uid = newUid
-    }
+    func setUid(newUid: String) { uid = newUid }
     
-    func getUid() -> String?
-    {
-        return uid
-    }
+    func getUid() -> String? { return uid }
     
+    func setUsername(newUsername: String) { username = newUsername }
     
-    func setUsername(newUsername: String)
-    {
-        username = newUsername
-    }
+    func getUsername() -> String? { return username }
     
-    func getUsername() -> String?
-    {
-        return username
-    }
-    func setEmail(newEmail: String)
-    {
-        email = newEmail
-    }
+    func setEmail(newEmail: String) { email = newEmail }
     
-    func getEmail() -> String?
+    func getEmail() -> String? { return email }
+    
+    func addRoom (room: RoomModel)
     {
-        return email
+        roomsList.append(room)
+        roomCount += 1
     }
 }
-

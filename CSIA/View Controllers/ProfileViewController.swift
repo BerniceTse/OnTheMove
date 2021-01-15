@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         imageView.image = UIImage(named: "OnTheMove")
         setUpElements()
+        displayInfo()
         }
     
     func setUpElements()
@@ -35,38 +36,55 @@ class ProfileViewController: UIViewController {
            errorLabel.alpha = 0
        }
     
+    func displayInfo()
+    {
+        let uid = Auth.auth().currentUser?.uid
+        let ref: DatabaseReference = Database.database().reference()
+        ref.child("users").child(uid!).child("Personal Information").child("Username").observe(.value)
+            { (DataSnapshot) in
+                if DataSnapshot.exists()
+                {
+                    let username = DataSnapshot.value as! String
+                    self.usernameLabel.text = username
+                }
+            }
+        ref.child("users").child(uid!).child("Personal Information")
+            .child("Email").observe(.value)
+            { (DataSnapshot) in
+                if DataSnapshot.exists()
+                {
+                    let email = DataSnapshot.value as! String
+                    self.emailLabel.text = email
+                }
+            }
+    }
+    
     func showError( message: String)
     {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
-    
+    func transitionToHome()
+    {
+        let mainTabController = storyboard?.instantiateViewController(identifier: "HomeVC") as? UINavigationController
+        view.window?.rootViewController = mainTabController
+        view.window?.makeKeyAndVisible()
+    }
+    //https://www.youtube.com/watch?v=7LXEU5QzPOU
     @IBAction func logOutButtonTapped(_ sender: Any)
     {
-        print("Tapped")
         let auth = Auth.auth()
         do
         {
             try auth.signOut()
-            self.dismiss(animated: true, completion: nil)
+            let defaults = UserDefaults.standard
+            defaults.set(false, forKey: "isUserSignedIn")
+            transitionToHome()
         }
         catch
         {
             self.showError(message: "Error signing out")
         }
     }
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
 
