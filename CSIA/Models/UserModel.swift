@@ -11,16 +11,12 @@ class UserModel
     var uid: String?
     var username: String?
     var email: String?
-    var roomsList: [RoomModel] = []
-    var roomCount: Int
     
-    init(uid: String?, username: String?, email: String?, roomsList: [RoomModel], roomCount: Int)
+    init(uid: String?, username: String?, email: String?)
     {
         self.uid = uid
         self.username = username
         self.email = email
-        self.roomsList = roomsList
-        self.roomCount = roomCount
     }
     
     func setUid(newUid: String) { uid = newUid }
@@ -35,9 +31,4 @@ class UserModel
     
     func getEmail() -> String? { return email }
     
-    func addRoom (room: RoomModel)
-    {
-        roomsList.append(room)
-        roomCount += 1
-    }
 }

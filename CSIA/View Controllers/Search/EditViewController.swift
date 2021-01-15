@@ -100,97 +100,73 @@ class EditViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         descriptionTapGesture.numberOfTouchesRequired = 1
         descriptionLabel.addGestureRecognizer(descriptionTapGesture)
     }
-    
     //https://stackoverflow.com/questions/31446237/how-can-i-edit-a-uilabel-upon-touching-it-in-swift
+    func whenTapped(label: UILabel, textfield: UITextField)
+    {
+        label.isHidden = true
+        textfield.isHidden = false
+        textfield.text = label.text
+    }
+    
     @objc func namelabelTapped()
     {
-        nameLabel.isHidden = true
-        nameTextField.isHidden = false
-        nameTextField.text = nameLabel.text
+        whenTapped(label: nameLabel, textfield: nameTextField)
     }
     
     @objc func roomLabelTapped()
     {
-        roomLabel.isHidden = true
-        roomTextField.isHidden = false
-        roomTextField.text = roomLabel.text
+        whenTapped(label: roomLabel, textfield: roomTextField)
     }
     
     @objc func boxLabelTapped()
     {
-        boxLabel.isHidden = true
-        boxTextField.isHidden = false
-        boxTextField.text = boxLabel.text
+        whenTapped(label: boxLabel, textfield: boxTextField)
     }
     
     @objc func quantityLabelTapped()
     {
-        quantityLabel.isHidden = true
-        quantityTextField.isHidden = false
-        quantityTextField.text = quantityLabel.text
+        whenTapped(label: quantityLabel, textfield: quantityTextField)
     }
     
     @objc func descriptionLabelTapped()
     {
-        descriptionLabel.isHidden = true
-        descriptionTextField.isHidden = false
-        descriptionTextField.text = descriptionLabel.text
+        whenTapped(label: descriptionLabel, textfield: descriptionTextField)
     }
     
-    
+    func displayText(label: UILabel, textfield: UITextField)
+    {
+        textfield.resignFirstResponder()
+        textfield.isHidden = true
+        label.isHidden = false
+        label.text = textfield.text
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         if textField == nameTextField
         {
-            textField.resignFirstResponder()
-            nameTextField.isHidden = true
-            nameLabel.isHidden = false
-            nameLabel.text = nameTextField.text
+            displayText(label: nameLabel, textfield: nameTextField)
         }
         if textField == roomTextField
         {
-            textField.resignFirstResponder()
-            roomTextField.isHidden = true
-            roomLabel.isHidden = false
-            roomLabel.text = roomTextField.text
+            displayText(label: roomLabel, textfield: roomTextField)
         }
         
         if textField == boxTextField
         {
-            textField.resignFirstResponder()
-            boxTextField.isHidden = true
-            boxLabel.isHidden = false
-            boxLabel.text = boxTextField.text
+            displayText(label: boxLabel, textfield: boxTextField)
         }
         if textField == quantityTextField
         {
-            textField.resignFirstResponder()
-            quantityTextField.isHidden = true
-            quantityLabel.isHidden = false
-            quantityLabel.text = quantityTextField.text
+            displayText(label: quantityLabel, textfield: quantityTextField)
         }
         if textField == descriptionTextField
         {
-            textField.resignFirstResponder()
-            descriptionTextField.isHidden = true
-            descriptionLabel.isHidden = false
-            descriptionLabel.text = descriptionTextField.text
+            displayText(label: descriptionLabel, textfield: descriptionTextField)
         }
-    
         return true
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-//    {
-//        if textField == quantityTextField
-//        {
-//            if string.rangeOfCharacter(from: NSCharacterSet.decimalDigits) != nil
-//            {
-//                bool = true
-//            }
-//        }
-//        return bool
-//    }
+
     func update()
     {
         let uid = Auth.auth().currentUser?.uid
@@ -202,48 +178,65 @@ class EditViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         let description = descriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let q = quantityLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-//        if bool == true
-//        {
-//            quantityToStore = quantityLabel.text
-//        }
-//        else
-//        {
-//            let alert = UIAlertController(title: "Error", message: "Quantity must be an integer", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
-//                { (UIAlertAction) in
-//                    NSLog("The \"OK\" alert occured.")
-//                }))
-//                self.present(alert, animated: true, completion: nil)
-//        }
-        
         let itemDict: [String: Any] = [ "Room": roomName, "Box": boxName,"Description": description, "Quantity": q, "Name": itemName]
         ref.child("users").child(uid!).child("Items").child(itemName).setValue(itemDict)
-        
-        
     }
     
     @IBAction func updateButtonTapped(_ sender: Any)
     {
+        if roomLabel.text == "" || boxLabel.text == "" || nameLabel.text == ""
+        {
+            let alert = UIAlertController(title: "Error", message: "Please ensure you have inputted all fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+                { (UIAlertAction) in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+        }
+        if quantityLabel.text == "0"
+        {
+            let alert = UIAlertController(title: "Error", message: "Quantity cannot be zero", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+                { (UIAlertAction) in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+        }
+        else
+        {
         update()
         let alert = UIAlertController(title: "Success", message: "Item has been updated!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
             { (UIAlertAction) in
                 NSLog("The \"OK\" alert occured.")
+                let vc = self.storyboard?.instantiateViewController(identifier: "searchVC") as? SearchViewController
+                self.navigationController?.pushViewController(vc!, animated: true)
             }))
             self.present(alert, animated: true, completion: nil)
-         let vc = storyboard?.instantiateViewController(identifier: "searchVC") as? SearchViewController
-         self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
+
     @IBAction func deleteButtonTapped(_ sender: Any)
     {
         let uid = Auth.auth().currentUser?.uid
         let ref: DatabaseReference = Database.database().reference()
         
-        let itemName = nameTextField.text
-        ref.child("users").child(uid!).child("Items").child(itemName!).removeValue()
-        let vc = storyboard?.instantiateViewController(identifier: "searchVC") as? SearchViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let confirmation = UIAlertController(title: "Confirm", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default)
+        { (UIAlertAction) in
+            let itemName = self.nameLabel.text!
+            ref.child("users").child(uid!).child("Items").child(itemName).removeValue()
+            let vc = self.storyboard?.instantiateViewController(identifier: "searchVC") as? SearchViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        { (UIAlertAction) in
+            print("cancel button tapped")
+        }
+        confirmation.addAction(yes)
+        confirmation.addAction(cancel)
+        self.present(confirmation, animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int

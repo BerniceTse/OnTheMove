@@ -129,19 +129,19 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             let itemName = itemNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let description = descriptionLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-//            if boxName == "Other"
-//            {
-//                let vc = storyboard?.instantiateViewController(identifier: "PopUpVC") as? PopUpViewController
-//
-//                self.navigationController?.pushViewController(vc!, animated: true)
-//            }
-                
             //obtain current user id
             let uid = Auth.auth().currentUser?.uid
                 
             //store relevant information in Firebase: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html
             let itemDict: [String: Any] = [ "Room": roomName, "Box": boxName,"Description": description, "Quantity": quantity, "Name": itemName]
             ref.child("users").child(uid!).child("Items").child(itemName).setValue(itemDict)
+            
+            let alert = UIAlertController(title: "Success", message: "Item added!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+                { (UIAlertAction) in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
                 
             //clear display
             clear(textfield: roomField)
@@ -150,11 +150,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             clear(textfield: descriptionLabel)
             quantityStepper.value = 1
             quantityLabel.text = "1"
-            
-            let vc = storyboard?.instantiateViewController(identifier: "boxesVC") as? BoxesViewController
-//            vc?.boxName.text = boxName
-//            vc?.roomName.text = roomName
-            self.navigationController?.pushViewController(vc!, animated: true)
+
         }
     }
      
@@ -166,9 +162,4 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
 }
 
-           //add roomCount
-//            ref.child("users").child(uid!).child("Personal Information").child("RoomCount").observeSingleEvent(of: .value)
-//                { (DataSnapshot) in
-//                    self.roomCount = (DataSnapshot.value as? Int)!
-//                }
-//            ref.child("users").child(uid!).child("Personal Information").child("RoomCount").setValue(roomCount + 1)
+ 
