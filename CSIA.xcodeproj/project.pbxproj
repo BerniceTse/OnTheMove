@@ -11,8 +11,6 @@
 		CC13B22624E92610002BF6BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC13B22524E92610002BF6BF /* Constants.swift */; };
 		CC1EDB3224EA7214009199BE /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3124EA7214009199BE /* ItemViewController.swift */; };
 		CC1EDB3424EA73FF009199BE /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3324EA73FF009199BE /* EditViewController.swift */; };
-		CC1EDB3624EA75CB009199BE /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */; };
-		CC1EDB3824EA7606009199BE /* BoxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EDB3724EA7606009199BE /* BoxesViewController.swift */; };
 		CC40E1C424E8F885001611BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC40E1C324E8F885001611BB /* GoogleService-Info.plist */; };
 		CC827F2424E8E6390081D245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F2324E8E6390081D245 /* AppDelegate.swift */; };
 		CC827F2624E8E6390081D245 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC827F2524E8E6390081D245 /* SceneDelegate.swift */; };
@@ -26,17 +24,12 @@
 		CCBFB6AA24E943BE0050D8C9 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6A924E943BE0050D8C9 /* RoomViewController.swift */; };
 		CCBFB6AC24E944230050D8C9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6AB24E944230050D8C9 /* SearchViewController.swift */; };
 		CCBFB6AE24E944340050D8C9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6AD24E944340050D8C9 /* AddViewController.swift */; };
-		CCBFB6B024E944400050D8C9 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6AF24E944400050D8C9 /* ScanViewController.swift */; };
 		CCBFB6B224E9444D0050D8C9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B124E9444D0050D8C9 /* ProfileViewController.swift */; };
-		CCBFB6B424E982190050D8C9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B324E982180050D8C9 /* UserModel.swift */; };
 		CCBFB6B724E98E760050D8C9 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B624E98E750050D8C9 /* ItemModel.swift */; };
-		CCBFB6B924E98F480050D8C9 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6B824E98F480050D8C9 /* BoxModel.swift */; };
-		CCBFB6BB24E990FF0050D8C9 /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */; };
 		CCCE297525AF33BE00D13AB9 /* SearchCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCE297325AF33BD00D13AB9 /* SearchCellTableViewCell.swift */; };
 		CCCE297625AF33BE00D13AB9 /* SearchCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCCE297425AF33BE00D13AB9 /* SearchCellTableViewCell.xib */; };
 		CCF16A8A259F639700342532 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF16A88259F639700342532 /* CustomTableViewCell.swift */; };
 		CCF16A8B259F639700342532 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF16A89259F639700342532 /* CustomTableViewCell.xib */; };
-		CCF16A8F25AE031800342532 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF16A8E25AE031800342532 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +39,8 @@
 		CC13B22524E92610002BF6BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CC1EDB3124EA7214009199BE /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		CC1EDB3324EA73FF009199BE /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
-		CC1EDB3724EA7606009199BE /* BoxesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxesViewController.swift; sourceTree = "<group>"; };
 		CC40E1C324E8F885001611BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC512EF525D0B8F200E3047E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CC827F2024E8E6390081D245 /* OnTheMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC827F2324E8E6390081D245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC827F2524E8E6390081D245 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,17 +55,12 @@
 		CCBFB6A924E943BE0050D8C9 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		CCBFB6AB24E944230050D8C9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CCBFB6AD24E944340050D8C9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		CCBFB6AF24E944400050D8C9 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		CCBFB6B124E9444D0050D8C9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CCBFB6B324E982180050D8C9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CCBFB6B624E98E750050D8C9 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
-		CCBFB6B824E98F480050D8C9 /* BoxModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
-		CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 		CCCE297325AF33BD00D13AB9 /* SearchCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellTableViewCell.swift; sourceTree = "<group>"; };
 		CCCE297425AF33BE00D13AB9 /* SearchCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCellTableViewCell.xib; sourceTree = "<group>"; };
 		CCF16A88259F639700342532 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		CCF16A89259F639700342532 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		CCF16A8E25AE031800342532 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				CCBFB6AD24E944340050D8C9 /* AddViewController.swift */,
-				CC1EDB3724EA7606009199BE /* BoxesViewController.swift */,
-				CC1EDB3524EA75CB009199BE /* QRCodeViewController.swift */,
-				CCF16A8E25AE031800342532 /* PopUpViewController.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -147,6 +131,7 @@
 		CC827F1724E8E6390081D245 = {
 			isa = PBXGroup;
 			children = (
+				CC512EF525D0B8F200E3047E /* README.md */,
 				CC827F2224E8E6390081D245 /* CSIA */,
 				CC827F2124E8E6390081D245 /* Products */,
 				8F6ABCEE17F3CA26E0B528D9 /* Pods */,
@@ -191,7 +176,6 @@
 				CC1EDB3A24EA77A2009199BE /* Search */,
 				CC1EDB3924EA7790009199BE /* Welcome */,
 				CCBFB6A924E943BE0050D8C9 /* RoomViewController.swift */,
-				CCBFB6AF24E944400050D8C9 /* ScanViewController.swift */,
 				CCBFB6B124E9444D0050D8C9 /* ProfileViewController.swift */,
 			);
 			path = "View Controllers";
@@ -200,10 +184,7 @@
 		CCBFB6B524E98E570050D8C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CCBFB6B324E982180050D8C9 /* UserModel.swift */,
 				CCBFB6B624E98E750050D8C9 /* ItemModel.swift */,
-				CCBFB6B824E98F480050D8C9 /* BoxModel.swift */,
-				CCBFB6BA24E990FF0050D8C9 /* RoomModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,24 +310,17 @@
 				CCBFB6AE24E944340050D8C9 /* AddViewController.swift in Sources */,
 				CC827F3E24E8E7FE0081D245 /* LoginViewController.swift in Sources */,
 				CC827F4024E8E8090081D245 /* SignUpViewController.swift in Sources */,
-				CCF16A8F25AE031800342532 /* PopUpViewController.swift in Sources */,
 				CCF16A8A259F639700342532 /* CustomTableViewCell.swift in Sources */,
-				CCBFB6B024E944400050D8C9 /* ScanViewController.swift in Sources */,
 				CC827F3A24E8E6B10081D245 /* MainTabController.swift in Sources */,
-				CCBFB6B424E982190050D8C9 /* UserModel.swift in Sources */,
 				CCBFB6AC24E944230050D8C9 /* SearchViewController.swift in Sources */,
 				CCBFB6B224E9444D0050D8C9 /* ProfileViewController.swift in Sources */,
-				CC1EDB3824EA7606009199BE /* BoxesViewController.swift in Sources */,
 				CC1EDB3424EA73FF009199BE /* EditViewController.swift in Sources */,
-				CCBFB6BB24E990FF0050D8C9 /* RoomModel.swift in Sources */,
 				CC827F3C24E8E7E20081D245 /* WelcomeViewController.swift in Sources */,
 				CC827F2424E8E6390081D245 /* AppDelegate.swift in Sources */,
 				CC827F2624E8E6390081D245 /* SceneDelegate.swift in Sources */,
-				CCBFB6B924E98F480050D8C9 /* BoxModel.swift in Sources */,
 				CC13B22624E92610002BF6BF /* Constants.swift in Sources */,
 				CCCE297525AF33BE00D13AB9 /* SearchCellTableViewCell.swift in Sources */,
 				CC1EDB3224EA7214009199BE /* ItemViewController.swift in Sources */,
-				CC1EDB3624EA75CB009199BE /* QRCodeViewController.swift in Sources */,
 				CCBFB6B724E98E760050D8C9 /* ItemModel.swift in Sources */,
 				CCBFB6AA24E943BE0050D8C9 /* RoomViewController.swift in Sources */,
 			);

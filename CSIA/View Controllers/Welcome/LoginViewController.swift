@@ -9,8 +9,8 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController
+{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         //check all fields are filled in
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||   passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-            return "Please fill in all fields."
+            return Constants.Storyboard.CheckAllFields
         }
         return nil
     }
@@ -74,4 +74,3 @@ class LoginViewController: UIViewController {
         }
     }
 }
-

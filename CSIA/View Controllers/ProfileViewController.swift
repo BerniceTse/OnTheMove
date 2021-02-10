@@ -11,8 +11,8 @@ import FirebaseDatabase
 import FirebaseAuth
 import Firebase
 
-class ProfileViewController: UIViewController {
-
+class ProfileViewController: UIViewController
+{
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -24,39 +24,37 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        imageView.image = UIImage(named: "OnTheMove")
+        imageView.image = UIImage(named: Constants.Storyboard.OnTheMove)
         setUpElements()
         displayInfo()
-        }
+    }
     
     func setUpElements()
-       {
-           errorLabel.alpha = 0
-       }
+    {
+        errorLabel.alpha = 0
+    }
     
     func displayInfo()
     {
         let uid = Auth.auth().currentUser?.uid
         let ref: DatabaseReference = Database.database().reference()
-        ref.child("users").child(uid!).child("Personal Information").child("Username").observe(.value)
-            { (DataSnapshot) in
-                if DataSnapshot.exists()
-                {
-                    let username = DataSnapshot.value as! String
-                    self.usernameLabel.text = username
-                }
+    ref.child(Constants.Storyboard.FirebaseUser).child(uid!).child(Constants.Storyboard.FirebasePersonalInformation).child(Constants.Storyboard.UserUsername).observe(.value)
+        { (DataSnapshot) in
+            if DataSnapshot.exists()
+            {
+                let username = DataSnapshot.value as! String
+                self.usernameLabel.text = username
             }
-        ref.child("users").child(uid!).child("Personal Information")
-            .child("Email").observe(.value)
-            { (DataSnapshot) in
-                if DataSnapshot.exists()
-                {
-                    let email = DataSnapshot.value as! String
-                    self.emailLabel.text = email
-                }
+        }
+    ref.child(Constants.Storyboard.FirebaseUser).child(uid!).child(Constants.Storyboard.FirebasePersonalInformation)
+        .child(Constants.Storyboard.UserEmail).observe(.value)
+        { (DataSnapshot) in
+            if DataSnapshot.exists()
+            {
+                let email = DataSnapshot.value as! String
+                self.emailLabel.text = email
             }
+        }
     }
     
     func showError( message: String)
@@ -64,12 +62,14 @@ class ProfileViewController: UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
+    
     func transitionToHome()
     {
         let mainTabController = storyboard?.instantiateViewController(identifier: "HomeVC") as? UINavigationController
         view.window?.rootViewController = mainTabController
         view.window?.makeKeyAndVisible()
     }
+    
     //https://www.youtube.com/watch?v=7LXEU5QzPOU
     @IBAction func logOutButtonTapped(_ sender: Any)
     {
@@ -86,5 +86,4 @@ class ProfileViewController: UIViewController {
             self.showError(message: "Error signing out")
         }
     }
-  }
-
+}

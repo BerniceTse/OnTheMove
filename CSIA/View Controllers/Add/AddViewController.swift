@@ -11,8 +11,8 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
+{
     var ref: DatabaseReference = Database.database().reference()
     
     @IBOutlet weak var itemNameTextField: UITextField!
@@ -23,7 +23,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var quantityStepper: UIStepper!
     
-    let rooms = ["Bathroom", "Bedroom", "Dining Room", "Kitchen", "Living Room", "Other"]
+    let rooms = ["Bathroom", "Bedroom", "Dining Room", "Kitchen", "Living Room"]
     let boxes = ["Tray", "Cupboard", "Shelf", "Drawer"]
     
     var quantity = ""
@@ -48,14 +48,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         boxField.inputView = boxPickerView
         boxField.placeholder = "Select Box"
     }
+    
     // returns the number of 'columns' to display.
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
     }
 
-    // returns the # of rows in each component..
+    // returns the # of rows in each component.
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         if pickerView == roomPickerView
@@ -69,7 +69,9 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         return 0
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    //returns title for rows
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
         if pickerView == roomPickerView
         {
             return rooms[row]
@@ -81,6 +83,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         return ""
     }
         
+    //if user clicks on row, disable responder
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         if pickerView == roomPickerView
@@ -105,19 +108,21 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         //error catching: https://developer.apple.com/documentation/uikit/uialertcontroller
         if roomField.text == "" || boxField.text == "" || itemNameTextField.text == ""
         {
-            let alert = UIAlertController(title: "Error", message: "Please ensure you have inputted all fields", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+            //create alert to notify user
+            let alert = UIAlertController(title: Constants.Storyboard.Error, message: Constants.Storyboard.CheckAllFields, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString(Constants.Storyboard.OK, comment: Constants.Storyboard.DefaultAction), style: .default, handler:
                 { (UIAlertAction) in
-                    NSLog("The \"OK\" alert occured.")
+                    NSLog(Constants.Storyboard.OKAlert)
                 }))
                 self.present(alert, animated: true, completion: nil)
         }
-        if quantity == "0"
+        else if quantity == Constants.Storyboard.Zero
         {
-            let alert = UIAlertController(title: "Error", message: "Quantity cannot be zero", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+            //create alert to notify user
+            let alert = UIAlertController(title: Constants.Storyboard.Error, message: Constants.Storyboard.CheckQuantity, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString(Constants.Storyboard.OK, comment: Constants.Storyboard.DefaultAction), style: .default, handler:
                 { (UIAlertAction) in
-                    NSLog("The \"OK\" alert occured.")
+                    NSLog(Constants.Storyboard.OKAlert)
                 }))
                 self.present(alert, animated: true, completion: nil)
         }
@@ -133,13 +138,14 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             let uid = Auth.auth().currentUser?.uid
                 
             //store relevant information in Firebase: https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html
-            let itemDict: [String: Any] = [ "Room": roomName, "Box": boxName,"Description": description, "Quantity": quantity, "Name": itemName]
-            ref.child("users").child(uid!).child("Items").child(itemName).setValue(itemDict)
+            let itemDict: [String: Any] = [ Constants.Storyboard.ItemRoom: roomName, Constants.Storyboard.ItemBox: boxName,Constants.Storyboard.ItemDescription: description,Constants.Storyboard.ItemQuantity: quantity, Constants.Storyboard.ItemName: itemName]
+            ref.child(Constants.Storyboard.FirebaseUser).child(uid!).child(Constants.Storyboard.FirebaseItems).child(itemName).setValue(itemDict)
             
-            let alert = UIAlertController(title: "Success", message: "Item added!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler:
+            //create alert upon success
+            let alert = UIAlertController(title: Constants.Storyboard.Success, message: Constants.Storyboard.ItemAdded, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString(Constants.Storyboard.OK, comment: Constants.Storyboard.DefaultAction), style: .default, handler:
                 { (UIAlertAction) in
-                    NSLog("The \"OK\" alert occured.")
+                    NSLog(Constants.Storyboard.OKAlert)
                 }))
                 self.present(alert, animated: true, completion: nil)
                 
@@ -153,7 +159,7 @@ class AddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 
         }
     }
-     
+    
     //https://www.youtube.com/watch?v=fLJVBbVEpBg
     @IBAction func stepper(_ sender: UIStepper)
     {

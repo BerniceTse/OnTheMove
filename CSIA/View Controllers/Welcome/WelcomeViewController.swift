@@ -10,7 +10,6 @@ import UIKit
 
 class WelcomeViewController: UIViewController
 {
-
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
@@ -18,9 +17,7 @@ class WelcomeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         //https://www.youtube.com/watch?v=Lh8Iztqbwg0
-        iconImageView.image = UIImage(named: "OnTheMove")
+        iconImageView.image = UIImage(named: Constants.Storyboard.OnTheMove)
     }
-    
 }

@@ -12,7 +12,6 @@ import FirebaseAuth
 
 class ItemViewController: UIViewController
 {
-
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var roomName: UILabel!
     @IBOutlet weak var boxName: UILabel!
@@ -24,6 +23,7 @@ class ItemViewController: UIViewController
     var box = ""
     var q = ""
     var descrip = ""
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -32,11 +32,11 @@ class ItemViewController: UIViewController
         boxName.text = box
         quantity.text = q
         des.text = descrip
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func editButtonTapped(_ sender: Any)
     {
+        //pass item information into edit controller
         let vc = storyboard?.instantiateViewController(identifier: "editVC") as? EditViewController
         vc?.name = item
         vc?.room = roomName.text!
@@ -45,6 +45,4 @@ class ItemViewController: UIViewController
         vc?.d = des.text!
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-
-
 }

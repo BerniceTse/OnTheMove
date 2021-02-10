@@ -13,9 +13,9 @@ import FirebaseDatabase
 
 
 //https://www.youtube.com/watch?v=1HN7usMROt8
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController
+{
     
-
     var ref: DatabaseReference = Database.database().reference()
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -40,11 +40,11 @@ class SignUpViewController: UIViewController {
         //check all fields are filled in
         if usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-            return "Please fill in all fields."
+            return Constants.Storyboard.CheckAllFields
         }
         return nil
     }
-    //check password is secure
+    
     func showError( message: String)
     {
         errorLabel.text = message
@@ -54,7 +54,6 @@ class SignUpViewController: UIViewController {
     func transitionToHome()
     {
         let mainTabController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.MainTabController) as? MainTabController
-        
         view.window?.rootViewController = mainTabController
         view.window?.makeKeyAndVisible()
     }
@@ -76,17 +75,17 @@ class SignUpViewController: UIViewController {
             //create new user
             Auth.auth().createUser(withEmail: email, password: password)
             { (result, err) in
-                
+
                 //check errors
                 if err != nil
                 {
-                    self.showError(message: "Error creating user")
+                    self.showError(message: Constants.Storyboard.ErrorCreatingUser)
                 }
                 else
                 {
                     //user created successfully
-                    let dict: [String: Any] = ["Email": email, "UserID": result!.user.uid, "Username": username, "RoomsCount": 0, "RoomsList": []]
-                    self.ref.child("users").child(result!.user.uid).child("Personal Information").setValue(dict)
+                    let dict: [String: Any] = [Constants.Storyboard.UserEmail: email, Constants.Storyboard.UserUserID: result!.user.uid, Constants.Storyboard.UserUsername: username]
+                    self.ref.child(Constants.Storyboard.FirebaseUser).child(result!.user.uid).child(Constants.Storyboard.FirebasePersonalInformation).setValue(dict)
                     
                     //direct to homescreen
                     self.transitionToHome()

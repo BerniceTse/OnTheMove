@@ -9,12 +9,14 @@
 
 class ItemModel
 {
+    //model for item with corresponding variables
     var name: String?
     var box: String?
     var room: String?
     var quantity: String?
     var description: String?
-       
+      
+    //initialization for item model
     init(name: String?, box: String?, room: String?, quantity: String?, description: String?)
        {
            self.name = name
@@ -24,6 +26,7 @@ class ItemModel
            self.description = description
        }
     
+    //corresponding getter and setter methods
     func setName(newName: String) { name = newName }
     func getName() -> String? { return name }
     func setBox(newBox: String) { box = newBox }
